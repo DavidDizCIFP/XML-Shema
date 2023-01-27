@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<alumnos grupo="3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="alumno.xsd">
+    <alumno dni="298989069">
+      <nombre>juan</nombre>
+      <edad>23</edad>
+      <nota eval="3">8.5</nota>
+      <telefono>(+034)123456789</telefono>
+      <iniciales>JGa</iniciales>
+      <optativa>c</optativa>
+      <genero>hombre</genero>
+    </alumno>
+</alumnos>

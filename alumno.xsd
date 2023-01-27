@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:element name="alumnos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="profesor" type="persona"/>
+        <xs:element ref="alumno" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="grupo" type="xs:integer" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+<xs:element name="alumno" type="persona">
+    
+ </xs:element>
+ 
+<xs:element name="nota">
+   <xs:complexType>
+     <xs:simpleContent>
+       <xs:extension base="tiponota">
+          <xs:attribute name="eval" type="tipoevaluacion" use="required"/>
+       </xs:extension>
+     </xs:simpleContent>
+
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="persona">
+<xs:sequence>
+<xs:element name="nombre" type="tiponombre"/>
+<xs:element name="edad" type="tipoedad"/>
+<xs:element ref="nota" minOccurs="0" maxOccurs="10"/>
+<xs:element name="telefono" type="tipotelefono" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="iniciales" type="tipoiniciales" />
+<xs:element name="optativa" type="tipooptativa" />
+<xs:element name="genero" type="tipogenero"/>
+</xs:sequence>
+<xs:attribute name="dni" type="tipodni" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="tipoevaluacion">
+<xs:restriction base="xs:integer">
+<xs:enumeration value="1"/>
+<xs:enumeration value="2"/>
+<xs:enumeration value="3"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tiponombre">
+<xs:restriction base="xs:string">
+    <xs:pattern value="([a-z])*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tiponota">
+<xs:restriction base="xs:decimal">
+<xs:fractionDigits value="2"/>
+<xs:totalDigits value="3"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoedad">
+<xs:restriction base="xs:decimal">
+<xs:fractionDigits value="1"/>
+<xs:totalDigits value="4"/>
+<xs:maxExclusive value="120"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoiniciales">
+<xs:restriction base="xs:string">
+  <xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipooptativa">
+<xs:restriction base="xs:string">
+  <xs:pattern value="[abc]"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipodni">
+<xs:restriction base="xs:string">
+  <xs:pattern value="[0-9]{9}"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipogenero">
+<xs:restriction base="xs:string">
+  <xs:pattern value="hombre|mujer"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipotelefono">
+<xs:restriction base="xs:string">
+  <xs:pattern value="\(\+[0-9]{3}\)[0-9]{9}"/>
+</xs:restriction>
+</xs:simpleType>
+
+</xs:schema>

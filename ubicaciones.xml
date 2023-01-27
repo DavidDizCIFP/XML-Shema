@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ubicaciones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="ubicaciones.xsd">
+   <ubicacion metros="23">norte</ubicacion>
+   <ubicacion metros="52">este</ubicacion>
+   <ubicacion metros="46">este</ubicacion>
+</ubicaciones>
